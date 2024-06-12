@@ -4,36 +4,33 @@ const textos = document.querySelectorAll(".aba-conteudo");
 for(let i=0;i <botoes.length;i++){
 botoes[i].onclick = function(){
 
-    for(let j=0;j<botoes.length;j++){
-        botoes[j].classList.remove("ativo");
-        textos[j].classList.remove("ativo");
+for(let j=0;j<botoes.length;j++){
+botoes[j].classList.remove("ativo");
+textos[j].classList.remove("ativo");
     }
-    botoes[i].classList.add("ativo");
-    textos[i].classList.add("ativo");
+botoes[i].classList.add("ativo");
+textos[i].classList.add("ativo");
 }
 }
 
 const contadores = document.querySelectorAll(".contador");
 const tempoObjetivo1 = new Date("2024-10-05t00:00:00");
-const tempoObjetivo2 = new Date("2024-06-05t00:00:00");
+const tempoObjetivo2 = new Date("2024-06-13t00:00:00");
 const tempoObjetivo3 = new Date("2024-12-30t00:00:00");
 const tempoObjetivo4 = new Date("2025-01-05t00:00:00");
-const tempo = [ tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+const tempo = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+
 function atualizaCronometro(){
-
 for (let i=0; i<contadores.length;i++){
-document.getElementById("dias"+i).textContent = calculaTempo(tempos[i])[0];
-document.getElementById("horas"+i).textContent = calculaTempo(tempos[i])[1];
-document.getElementById("minutos"+i).textContent = calculaTempo(tempos[i])[2];
-document.getElementById("segundo"+i).textContent = calculaTempo(tempos[i])[3];
+document.getElementById("dias"+i).textContent = calculaTempo(tempo[i])[0];
+document.getElementById("horas"+i).textContent = calculaTempo(tempo[i])[1];
+document.getElementById("minutos"+i).textContent = calculaTempo(tempo[i])[2];
+document.getElementById("segundos"+i).textContent = calculaTempo(tempo[i])[3];
 }
 
 }
-
-
 function calculaTempo(tempoObjetivo){
 let tempoAtual = new Date();
-
 let tempoFinal = tempoObjetivo - tempoAtual;
 let segundos = Math.floor(tempoFinal / 1000);
 let minutos = Math.floor(segundos / 60);
@@ -55,4 +52,5 @@ atualizaCronometro();
 setInterval(atualizaCronometro, 1000);
 }
 
-comecaCronograma();
+comecaCronograma(); 
+
